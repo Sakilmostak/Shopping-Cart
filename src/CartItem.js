@@ -1,48 +1,39 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    constructor(){
-        super();
-        this.state= {
-            price: 500,
-            title: 'Phone',
-            qty: 2,
-            img: ''
-        }
-    }
 
-    increseQuantity = () =>{    //arrow function bind this to the function 
-        //setState() shallow merges the update with the state object and re-render the app
+    // increseQuantity = () =>{    //arrow function bind this to the function 
+    //     //setState() shallow merges the update with the state object and re-render the app
 
-        // method 1
-        // this.setState({
-        //     qty: this.state.qty+1
-        // });
+    //     // method 1
+    //     // this.setState({
+    //     //     qty: this.state.qty+1
+    //     // });
 
-        // method 2
-        this.setState((prevState)=> {
-            return {
-                qty: prevState.qty+1
-            }
-        });
-    }
+    //     // method 2
+    //     this.setState((prevState)=> {
+    //         return {
+    //             qty: prevState.qty+1
+    //         }
+    //     });
+    // }
 
-    decreaseQuantity = () =>{
-        this.setState((prevState)=>{
-            if(prevState.qty>0){
-                return {
-                    qty: prevState.qty-1
-                }
-            }
-        })
-    }
+    // decreaseQuantity = () =>{
+    //     this.setState((prevState)=>{
+    //         if(prevState.qty>0){
+    //             return {
+    //                 qty: prevState.qty-1
+    //             }
+    //         }
+    //     })
+    // }
 
     render(){
-        const {price, title, qty} = this.state; //destructuring the object
+        const {price, title, qty} = this.props.product; //props contain the value passed into this component when this is called
         return (
             <div className='cart-item'>
                 <div className='left-block'>
-                    <img style={styles.image} src='' alt='item' a/>
+                    <img style={styles.image} src='' alt='item'/>
 
                 </div>
                 <div className='right-block'>
