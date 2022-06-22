@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Shopping Cart
+
+This project showcase a cart where you can add items, delete then and even increase their quantity. The cart already calculate the total bill based on the items you have added.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
