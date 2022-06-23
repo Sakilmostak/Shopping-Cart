@@ -32,6 +32,41 @@ class Cart extends React.Component {
         }
     }
 
+    handleIncreaseQuantity = (product)=> {
+        const {products}= this.state; //getting the array
+        const index= products.indexOf(product); //getting the index where the product is
+
+        products[index].qty+=1; //incrementing value
+
+        //updating the render
+        this.setState({
+            products: products
+        })
+    }
+
+    handleDecreaseQuantity = (product)=> {
+        const {products}= this.state; //getting the array
+        const index= products.indexOf(product); //getting the index where the product is
+        
+        if(products[index].qty>0){
+            products[index].qty-=1;
+
+            this.setState({
+                products: products
+            })
+        }
+    }
+
+    handleDeleteProduct =(id)=> {
+        const {products} = this.state;
+
+        const items = products.filter((item)=> item.id!==id);
+
+        this.setState({
+            products: items
+        })
+    }
+
     render(){
         const {products} = this.state;
         return (
@@ -41,6 +76,9 @@ class Cart extends React.Component {
                         <CartItem 
                             product={product} 
                             key={product.id}
+                            onIncreaseQuantity={this.handleIncreaseQuantity}
+                            onDecreaseQuantity={this.handleDecreaseQuantity}
+                            handleDeleteProduct={this.handleDeleteProduct}
                         /> //passint the value in product to the 'props' to be accessed by this component
                     )
                 })}
